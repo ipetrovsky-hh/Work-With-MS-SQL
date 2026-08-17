@@ -15,3 +15,13 @@ INSERT INTO EMPLOYEE(Id,Code,Name,StatusId) VALUES(5,'dgadfterdsgsdgad',N'Зап
 INSERT INTO EMPLOYEE(Id,Code,Name,StatusId) VALUES(6,'argrgag',N'Запрос предложений 6','2');
 
 SELECT * FROM  EMPLOYEE FOR XML AUTO;
+
+/*
+RESULTS:
+<EMPLOYEE Id="1" Code="gargadgadfga" Name="Запрос предложений 1" StatusId="45"/>
+<EMPLOYEE Id="2" Code="bsftrggdfgadfgdfat" Name="Запрос предложений 2" StatusId="2"/>
+<EMPLOYEE Id="3" Code="gfadgdfsgdfsgs" Name="Запрос предложений 3" StatusId="45"/>
+<EMPLOYEE Id="4" Code="afgereaerffdgvdf" Name="Запрос предложений 4" StatusId="3"/>
+<EMPLOYEE Id="5" Code="dgadfterdsgsdgad" Name="Запрос предложений 5" StatusId="45"/>
+<EMPLOYEE Id="6" Code="argrgag" Name="Запрос предложений 6" StatusId="2"/>
+*/
