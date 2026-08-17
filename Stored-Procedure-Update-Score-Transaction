@@ -1,0 +1,48 @@
+CREATE TABLE SCORES (
+  NumScore INTEGER PRIMARY KEY,
+  SummaScore Money
+);
+
+-- insert
+INSERT INTO SCORES VALUES (1,100);
+INSERT INTO SCORES VALUES (2,200);
+INSERT INTO SCORES VALUES (3,300);
+INSERT INTO SCORES VALUES (4,400);
+INSERT INTO SCORES VALUES (5,500);
+INSERT INTO SCORES VALUES (6,600);
+
+SELECT NumScore, SummaScore FROM SCORES
+
+DROP PROCEDURE IF EXISTS ChangeScores;
+GO
+
+CREATE PROCEDURE ChangeScores
+(
+    -- Add the parameters for the stored procedure here
+    @NumScore1 INTEGER = NULL,
+    @NumScore2 INTEGER = NULL,
+    @SummaScoreIN Money = 0
+)
+AS
+BEGIN
+
+    SET NOCOUNT OFF;
+
+    DECLARE @SummaScoreF MONEY;
+
+    SELECT @SummaScoreF = SCORES.SummaScore FROM SCORES WHERE SCORES.NumScore=@NumScore1;
+    BEGIN TRANSACTION;
+    IF (@SummaScoreF>0)
+      BEGIN
+       UPDATE SCORES SET SCORES.SummaScore = SCORES.SummaScore + @SummaScoreIN
+       WHERE SCORES.NumScore = @NumScore2;    
+      END
+   COMMIT;
+END;
+GO
+
+EXECUTE ChangeScores @NumScore1=1, @NumScore2 = 2,@SummaScoreIN=300;
+
+--SELECT NumScore, SummaScore FROM SCORES
+--GO
+SELECT * FROM SCORES WHERE SCORES.NumScore=2
