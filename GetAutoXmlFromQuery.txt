@@ -1,0 +1,17 @@
+-- create
+CREATE TABLE EMPLOYEE (
+  Id INTEGER PRIMARY KEY,
+  Code nvarchar(50) NOT NULL,
+  Name nvarchar(50) NOT NULL,
+  StatusId nvarchar(50) NOT NULL
+);
+
+-- insert
+INSERT INTO EMPLOYEE(Id,Code,Name,StatusId) VALUES(1,'gargadgadfga',N'Запрос предложений 1','45');
+INSERT INTO EMPLOYEE(Id,Code,Name,StatusId) VALUES(2,'bsftrggdfgadfgdfat',N'Запрос предложений 2','2');
+INSERT INTO EMPLOYEE(Id,Code,Name,StatusId) VALUES(3,'gfadgdfsgdfsgs',N'Запрос предложений 3','45');
+INSERT INTO EMPLOYEE(Id,Code,Name,StatusId) VALUES(4,'afgereaerffdgvdf',N'Запрос предложений 4','3');
+INSERT INTO EMPLOYEE(Id,Code,Name,StatusId) VALUES(5,'dgadfterdsgsdgad',N'Запрос предложений 5','45');
+INSERT INTO EMPLOYEE(Id,Code,Name,StatusId) VALUES(6,'argrgag',N'Запрос предложений 6','2');
+
+SELECT * FROM  EMPLOYEE FOR XML AUTO;
